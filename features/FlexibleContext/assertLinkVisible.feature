@@ -6,9 +6,11 @@ Feature: Assert Link is visible
   Background:
     Given I am on "/link.html"
 
-  Scenario: Step passes if links are visible
+  Scenario: Step passes if link is visible
+    Then the "an anchor tag with href" link is visible
+
+  Scenario: Step passes if link without href is visible
     Then the "an anchor tag without href" link is visible
-     And the "an anchor tag with href" link is visible
 
   Scenario: Step fails if link is invisible
     When I assert that the "an invisible anchor tag" link is visible
