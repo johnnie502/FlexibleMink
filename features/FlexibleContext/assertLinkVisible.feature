@@ -7,7 +7,7 @@ Feature: Assert Link is visible
     Given I am on "/link.html"
 
   Scenario: Step passes if link is visible
-    Then the "an anchor tag with href" link is visible
+    Then the "I am a link" link is visible
 
   Scenario: Step passes if link without href is visible
     Then the "an anchor tag without href" link is visible
