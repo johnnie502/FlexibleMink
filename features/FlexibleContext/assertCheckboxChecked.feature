@@ -11,3 +11,10 @@ Feature:  Assert Checkbox Checked
 
   Scenario: Assert the checkbox not checked
     Then the "Not Checked" checkbox should not be checked
+
+  Scenario: Assert the checkbox by injected values
+    Given the following is stored as "Page":
+      | first_checkbox  | Checked   |
+      | second_checkbox | Not Checked   |
+     Then the "(the first_checkbox of the Page)" checkbox should be checked
+      And the "(the second_checkbox of the Page)" checkbox should not be checked
