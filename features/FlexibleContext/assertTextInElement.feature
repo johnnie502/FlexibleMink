@@ -12,12 +12,12 @@ Feature: Assert Element Contains Texts
   Scenario: Developer Can Assert Text Not Exist in Element
     Then I should not see "This is a div" in the "#emptyDiv" element
 
-  Scenario: Assertion fails reliably if text is not found in the element when excepted to be found
+  Scenario: Assertion fails reliably if text is not found in the element when expected to be found
     When I assert that I should not see "This is a div" in the "#divWithText" element
     Then the assertion should throw an ElementTextException
      And the assertion should fail with the message 'The text "This is a div" appears in the text of the element matching css "#divWithText", but it should not.'
 
-  Scenario: Assertion fails reliably if text is found in the element when excepted to be not found
+  Scenario: Assertion fails reliably if text is found in the element when expected to be not found
     When I assert that I should see "This is a div" in the "#emptyDiv" element
     Then the assertion should throw an ElementTextException
     And the assertion should fail with the message 'The text "This is a div" was not found in the text of the element matching css "#emptyDiv".'
