@@ -186,4 +186,19 @@ trait StoreContext
     {
         $this->put($this->get($current), $new);
     }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @Then the :property of the :thing should contain :keyword
+     */
+    public function assertThingPropertyContains($thing, $property, $expected)
+    {
+        $expected = $this->injectStoredValues($expected);
+
+        $actual = $this->getThingProperty($thing, $property);
+        if (strpos($actual, $expected) === false) {
+            throw new Exception("Expected '$thing' property '$property' containing '$expected', but found '$actual'");
+        }
+    }
 }
