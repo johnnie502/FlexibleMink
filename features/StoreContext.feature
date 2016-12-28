@@ -56,4 +56,4 @@ Feature: Store Context
       | body | Eat more cake|
      When I assert that the "body" of the "Slogan" should contain "candy"
      Then the assertion should throw an Exception
-      And the assertion should fail with the message "Expected 'Slogan' property 'body' to contain 'candy', but found 'Eat more cake' instead"
+      And the assertion should fail with the message "Expected the 'body' of the 'Slogan' to contain 'candy', but found 'Eat more cake' instead"
