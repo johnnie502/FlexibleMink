@@ -198,7 +198,7 @@ trait StoreContext
 
         $actual = $this->getThingProperty($thing, $property);
         if (strpos($actual, $expected) === false) {
-            throw new Exception("Expected '$thing' property '$property' containing '$expected', but found '$actual'");
+            throw new Exception("Expected '$thing' property '$property' to contain '$expected', but found '$actual' instead");
         }
     }
 }
