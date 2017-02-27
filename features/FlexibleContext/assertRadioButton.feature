@@ -31,23 +31,6 @@ Feature:  Assert Radio Button
       And the "(the second_radio_button of the Page)" radio button should not be checked
       And the "(the third_radio_button of the Page)" radio button should not be checked
 
-  Scenario: Assert the radio button can be checked then others automatically unchecked
-    Given the "Radio Button 1" radio button should be checked
-      And the "Radio Button 2" radio button should not be checked
-      And the "Radio Button 3" radio button should not be checked
-     When I check radio button "Radio Button 2"
-     Then the "Radio Button 1" radio button should not be checked
-      And the "Radio Button 2" radio button should be checked
-      And the "Radio Button 3" radio button should not be checked
-     When I check radio button "Radio Button 3"
-     Then the "Radio Button 1" radio button should not be checked
-      And the "Radio Button 2" radio button should not be checked
-      And the "Radio Button 3" radio button should be checked
-     When I check radio button "Radio Button 1"
-     Then the "Radio Button 1" radio button should be checked
-      And the "Radio Button 2" radio button should not be checked
-      And the "Radio Button 3" radio button should not be checked
-
   Scenario: Assert the radio button can be checked by injected values
     Given the following is stored as "Page":
       | first_radio_button  | Radio Button 1 |
