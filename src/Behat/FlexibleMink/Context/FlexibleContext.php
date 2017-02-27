@@ -679,20 +679,16 @@ class FlexibleContext extends MinkContext
     {
         /** @var Selenium2Driver $driver */
         $driver = $this->getSession()->getDriver();
-        if (!($driver instanceof Selenium2Driver)) {
-            throw new UnsupportedDriverActionException('Resetting the driver is not supported by %s', $driver);
+        if (!($driver instanceof Selenium2Driver) || !method_exists($driver, 'getXpathBoundingClientRect')) {
+            // If not supported by driver, just return true so the keep the original sort.
+            return -1;
         }
 
-        try {
-            /* @noinspection PhpUndefinedMethodInspection */
-            $aRect = $driver->getXpathBoundingClientRect($a->getXpath());
-            /* @noinspection PhpUndefinedMethodInspection */
-            $bRect = $driver->getXpathBoundingClientRect($b->getXpath());
+        /* @noinspection PhpUndefinedMethodInspection */
+        $aRect = $driver->getXpathBoundingClientRect($a->getXpath());
+        /* @noinspection PhpUndefinedMethodInspection */
+        $bRect = $driver->getXpathBoundingClientRect($b->getXpath());
 
-            return $aRect['top'] - $bRect['top'];
-        } catch (UnsupportedDriverActionException $ex) {
-            // If not supported by browser, just return true so the keep the original sort.
-            return true;
-        }
+        return $aRect['top'] - $bRect['top'];
     }
 }
