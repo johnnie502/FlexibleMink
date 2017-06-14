@@ -1,5 +1,5 @@
 {
-  "name": "medology/flexible-mink",
+  "name": "johnnie502/flexible-mink",
   "type": "library",
   "description": "Mink Extensions for Commonly Used Assertions and Object Storage",
   "keywords": ["mink", "behat", "testing"],
