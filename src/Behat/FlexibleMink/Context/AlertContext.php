@@ -20,11 +20,15 @@ trait AlertContext
     /**
      * Clears out any alerts or prompts that may be open.
      *
-     * @AfterScenario @clearAlertsWhenFinished
+     * @AfterScenario
      * @Given there are no alerts on the page
      */
     public function clearAlerts()
     {
+        if (!$this->getSession()->getDriver()->isStarted()) {
+            return;
+        }
+
         try {
             $this->cancelAlert();
         } catch (NoAlertOpenError $e) {

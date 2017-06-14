@@ -1,4 +1,3 @@
-@clearAlertsWhenFinished
 Feature: Alert context
   In order to ensure that JavaScript alerts work as expected
   As a developer
