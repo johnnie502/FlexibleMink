@@ -73,7 +73,7 @@ trait AlertContext
             if (strpos($actual, $expected) === false) {
                 throw new ExpectationException("Text '$expected' not found in alert", $this->getSession());
             }
-        }, 15);
+        });
     }
 
     /**
