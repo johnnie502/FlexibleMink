@@ -3,12 +3,11 @@
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../" && pwd )"
 
 . "${ROOT}"/bin/lib/env.sh
-. "${ROOT}"/bin/lib/rm.sh
 . "${ROOT}"/bin/lib/tty.sh
 
 docker run \
     -i${TTY} \
-    ${RM} \
+    --rm \
     -v "$(pwd)":/data -w /data \
 	--net ${PROJECT_NAME}_default \
 	composer/composer:1.2 "$@"
