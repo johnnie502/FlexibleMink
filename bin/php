@@ -3,12 +3,11 @@
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../" && pwd )"
 
 . "${ROOT}"/bin/lib/env.sh
-. "${ROOT}"/bin/lib/rm.sh
 . "${ROOT}"/bin/lib/tty.sh
 
 docker run \
     -i${TTY} \
-    ${RM} \
+    --rm \
     -v "$(pwd)":/app -w /app \
 	--link web:dockermachine.local \
 	--net ${PROJECT_NAME}_default \
