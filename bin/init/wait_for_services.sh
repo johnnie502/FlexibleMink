@@ -11,7 +11,6 @@ ACCOUNT=appropriate
 REPO=curl
 VERSION=edge
 
-. "$ROOT"/bin/lib/args.sh
 . "$ROOT"/bin/lib/colors.sh
 . "$ROOT"/bin/lib/env.sh
 . "$ROOT"/bin/lib/rm.sh
