@@ -143,8 +143,6 @@ class ParallelWorkerFilter extends SimpleFilter
     protected function handelScenarioAsList(FeatureNode $feature)
     {
         if ($this->curScenario++ % $this->totalNodes === 0) {
-            echo $feature . ' \n';
-
             return $feature;
         }
 
